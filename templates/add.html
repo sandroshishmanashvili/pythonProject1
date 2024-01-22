@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+
+{%block content%}
+    <div>
+     <form method="post">
+         {{add.hidden_tag()}}
+
+         <h3>{{add.name.label}}</h3>
+         {{add.name( class=" form-control mt-2" ) }}
+         <h3>{{info1_name}}</h3>
+         {{add.info1( class=" form-control mt-2" )}}
+         {%if type == 'PC'%}
+            <h3>{{info3_name}}</h3>
+            {{add.info3( class=" form-control mt-2" )}}
+         {%endif%}
+         <h3>{{info2_name}}</h3>
+         {{add.info2( class=" form-control mt-2" )}}
+         <h3>{{add.image_url.label}}</h3>
+         {{add.image_url( class=" form-control mt-2" )}}
+         <h3>{{add.add_password.label}}</h3>
+         {{add.add_password(class = "form_control mt-2")}}
+         {{add.submit( class=" btn btn-danger mt-2 " ) }}
+         <a href="/add_transfer"  class="btn btn-primary">back</a>
+
+     </form>
+  </div>
+{%endblock%}

@@ -1,0 +1,88 @@
+{%extends "base.html"%}
+
+
+{%block content%}
+
+{%if type_2 == '1'%}
+    <div class="col-8 d-flex justify-content-center">
+        <div>
+         {%if type_1 == '1'%}
+            <h1>first item</h1>
+            {%for item in db%}
+                <div class="card" style="width: 18rem;">
+                    <img src="{{item.image_url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <h1 class="card-text">compare me</h1>
+                        <a href="{{type_0}}/{{item.name}}/1" class="btn btn-primary">compare</a>
+                     </div>
+                </div>
+            {%endfor%}
+         {%else%}
+            <h1>second item</h1>
+            {%for item in db%}
+                {%if item.name != type_1%}
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{item.image_url}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <h1 class="card-text">compare me</h1>
+                            <a href="{{type_0}}/{{type_1}}/{{item.name}}" class="btn btn-primary">compare</a>
+                         </div>
+                    </div>
+                {%endif%}
+            {%endfor%}
+         {%endif%}
+      </div>
+    </div>
+{%elif type_2 != '1'%}
+    <div class="col-3 d-flex justify-content-center align-items-center">
+         <div class="d-flex flex-column mb-3">
+            <div class="card" style="width: 18rem;">
+              <img src="{{info_img1}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h1 class="card-title">{{type_1}}</h1>
+                <h5>{{info1_name}}{{im1_1}}</h5>
+                <p>{{info1_1}}</p>
+                {%if type == 'PC'%}
+                <h5>{{info3_name}}{{im1_1}}</h5>
+                <p>{{info1_3}}</p>
+                {%endif%}
+                <h5>{{info2_name}}{{im1_2}}</h5>
+                <p>{{info1_2}}</p>
+              </div>
+            </div>
+         </div>
+    </div>
+
+    <div class="col-2 d-flex justify-content-center align-items-end">
+         <div class="d-flex flex-column mb-3">
+            <div><a href="/"  class="btn btn-primary">home</a></div>
+
+         </div>
+    </div>
+
+
+    <div class="col-4 d-flex justify-content-center align-items-center">
+         <div class="d-flex flex-column mb-3">
+            <div class="card" style="width: 18rem;">
+              <img src="{{info_img2}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h1 class="card-title">{{type_2}}</h1>
+                <h5>{{info1_name}}{{im2_1}}</h5>
+                <p>{{info2_1}}</p>
+                {%if type == 'PC'%}
+                <h5>{{info3_name}}{{im2_1}}</h5>
+                <p>{{info2_3}}</p>
+                {%endif%}
+                <h5>{{info2_name}}{{im2_2}}</h5>
+                <p>{{info2_2}}</p>
+              </div>
+            </div>
+         </div>
+    </div>
+{%endif%}
+
+
+
+{%endblock%}

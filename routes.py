@@ -14,7 +14,7 @@ admin = [True]
 
 
 
-@app.route("/pythonProject1/", methods = ["post", "get"])
+@app.route("/", methods = ["post", "get"])
 def home():
     add = Add()
     return render_template("index.html", add = add)
